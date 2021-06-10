@@ -13,12 +13,13 @@
             icon="edit"
             color="primary"
             dense
+            @click="editNote(props.row)"
           />
           <q-btn
             icon="delete"
             color="negative"
             dense
-            @click="deleteNote(props.row.key)"
+            @click="confirmationDeleteNote(props.row.key)"
           />
         </q-td>
       </template>
@@ -72,6 +73,20 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    },
+    editNote (note) {
+      this.$router.push({ name: 'formNote', params: { note } })
+    },
+    confirmationDeleteNote (keyNote) {
+      this.$q.dialog({
+        title: 'Deletar Anotação',
+        message: 'Tem certeza que deseja deletar essa anotação ?',
+        persistent: false,
+        ok: 'Deletar',
+        cancel: 'Cancelar'
+      }).onOk(() => {
+        this.deleteNote(keyNote)
+      })
     },
     async deleteNote (keyNote) {
       try {

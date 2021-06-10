@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <q-form
-      @submit="addNotes"
+      @submit="onSubmit"
       class="q-gutter-y-md"
     >
       <q-input
@@ -13,6 +13,11 @@
 
       <q-editor
         v-model="form.note"
+        :toolbar="[
+          ['bold', 'italic', 'strike', 'underline', 'link'],
+          ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
+          ['undo', 'redo']
+        ]"
       />
 
       <q-btn
@@ -28,6 +33,12 @@
 <script>
 export default {
   name: 'FormPage',
+  props: {
+    note: {
+      type: Object,
+      required: false
+    }
+  },
   data () {
     return {
       form: {
@@ -37,7 +48,19 @@ export default {
       collection: 'notes'
     }
   },
+  mounted () {
+    if (this.note) {
+      this.form = this.note
+    }
+  },
   methods: {
+    onSubmit () {
+      if (this.form.key) {
+        this.updateNotes()
+      } else {
+        this.addNotes()
+      }
+    },
     async addNotes () {
       try {
         await this.$db.collection(this.collection).add(this.form)
@@ -50,11 +73,19 @@ export default {
       } catch (error) {
         console.error(error)
       }
-      // this.$q.notify({
-      //   message: 'Anotação salva com sucesso!',
-      //   color: 'positive',
-      //   icon: 'check'
-      // })
+    },
+    async updateNotes () {
+      try {
+        await this.$db.collection(this.collection).doc(this.form.key).update(this.form)
+        this.$q.notify({
+          message: 'Anotação atualizada com sucesso!',
+          color: 'positive',
+          icon: 'check'
+        })
+        this.$router.push('/')
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }

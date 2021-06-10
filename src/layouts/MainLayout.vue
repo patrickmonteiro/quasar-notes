@@ -14,6 +14,14 @@
             v-go-back="'/'"
           />
         </div>
+        <div v-else >
+          <q-btn
+            icon="info"
+            flat
+            dense
+            @click="goToInfo"
+          />
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -29,6 +37,11 @@ export default {
   name: 'MainLayout',
   data () {
     return {
+    }
+  },
+  methods: {
+    goToInfo () {
+      this.$router.push({ name: 'info' })
     }
   }
 }
