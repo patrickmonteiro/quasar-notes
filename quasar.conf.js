@@ -136,8 +136,9 @@ module.exports = function (/* ctx */) {
         description: 'Aplicativo de anotações feito com Quasar Framework',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
-        theme_color: '#027be3',
+        background_color: '#093f6e',
+        theme_color: '#093f6e',
+        categories: ['tools', 'productivity', 'finance' ],
         icons: [
           {
             src: 'icons/icon-128x128.png',
