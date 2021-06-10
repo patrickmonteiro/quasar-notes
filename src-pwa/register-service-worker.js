@@ -33,6 +33,7 @@ register(process.env.SERVICE_WORKER_FILE, {
       icon: 'cloud_download',
       closeBtn: 'Atualizar',
       color: 'primary',
+      textColor: 'white',
       timeout: 10000,
       onDismiss () {
         location.reload()
