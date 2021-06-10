@@ -32,6 +32,7 @@ register(process.env.SERVICE_WORKER_FILE, {
       message: 'Nova Atualização Disponível!',
       icon: 'cloud_download',
       closeBtn: 'Atualizar',
+      color: 'primary',
       timeout: 10000,
       onDismiss () {
         location.reload()
