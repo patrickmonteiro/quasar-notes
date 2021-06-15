@@ -1,5 +1,5 @@
 [{
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target" : { "namespace": "android_app", "package_name": "app.netlify.quasar_notes_app.twa",
-                   "sha256_cert_fingerprints": ["42:27:AA:8C:FF:C3:94:11:BF:79:17:4E:C2:EF:7B:D4:72:18:AB:5B:66:30:E4:6E:61:D8:16:A2:49:BC:2B:6D"] }
+                   "sha256_cert_fingerprints": ["91:F8:4D:CF:B4:39:1D:38:9E:10:F5:1B:D2:C7:5E:4A:51:9D:62:30:2D:87:4D:69:A8:E3:9B:64:91:2E:BD:37"] }
     }]
