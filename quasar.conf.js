@@ -138,7 +138,7 @@ module.exports = function (/* ctx */) {
         orientation: 'portrait',
         background_color: '#093f6e',
         theme_color: '#093f6e',
-        categories: ['tools', 'productivity', 'finance' ],
+        categories: ['tools', 'productivity', 'finance'],
         icons: [
           {
             src: 'icons/icon-128x128.png',
@@ -164,9 +164,31 @@ module.exports = function (/* ctx */) {
             src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png'
+          },
+          {
+            src: 'maskable_icon_x192.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
           }
         ],
-        categories: ['utilities', 'lifestyle']
+        screenshots: [
+          {
+            src: 'screenshot/screenshot-1',
+            sizes: '650x1048',
+            type: 'image/webpngp'
+          },
+          {
+            src: 'screenshot/screenshot-2',
+            sizes: '650x1048',
+            type: 'image/png'
+          },
+          {
+            src: 'screenshot/screenshot-3',
+            sizes: '722 × 1180',
+            type: 'image/png'
+          }
+        ]
       }
     },
 
